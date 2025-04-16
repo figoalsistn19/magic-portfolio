@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.opakuapps",
+    "sha256_cert_fingerprints":
+    ["F2:D6:D8:E4:55:CE:27:CA:38:5C:21:8C:29:4A:30:24:1F:EA:62:29:E9:13:AB:0C:0B:B3:4B:DB:0E:0F:B1:26"]
+  }
+}]
