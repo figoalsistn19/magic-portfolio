@@ -1,13 +1,15 @@
 import { InlineCode } from "@/once-ui/components";
 
+
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  id: 0,
+  firstName: "Figo",
+  lastName: "Alsistani",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
+  role: "Software Developer",
+  avatar: "https://firebasestorage.googleapis.com/v0/b/goxwebsite.firebasestorage.app/o/a181a6d6-8201-4af9-8718-12968f2027fe-pas_foto.jpg?alt=media",
   location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
 };
@@ -29,12 +31,12 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/figoalsistn19",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/figo-alsistani-28f/",
   },
   {
     name: "X",
@@ -44,7 +46,7 @@ const social = [
   {
     name: "Email",
     icon: "email",
-    link: "mailto:example@gmail.com",
+    link: "mailto:figo.alsistani@yahoo.co.id",
   },
 ];
 
@@ -81,9 +83,15 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        I am an innovative and detail-oriented Software Developer with a strong foundation in designing
+        and building applications. With hands-on experience in the dynamic startup tech ecosystem,
+        particularly in e-commerce, I excel in delivering user-centric solutions with a focus on efficiency
+        and scalability. Beyond my professional experience, I have successfully collaborated with startup
+        teams on several projects, including the development of semi-ERP applications and job seeker
+        apps, demonstrating my ability to design and implement complex systems. I am passionate about
+        creating seamless apps experiences that drive business growth. My ability to adapt to fast-paced
+        environments, coupled with a commitment to continuous learning, makes me a valuable addition
+        to any forward-thinking team.
       </>
     ),
   },

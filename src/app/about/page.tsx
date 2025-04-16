@@ -1,3 +1,4 @@
+"use client";
 import {
   Avatar,
   Button,
@@ -14,37 +15,51 @@ import { baseURL } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
+import { JSX } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "@/store/store";
+import { useEffect } from "react";
+import { fetchProjects } from "@/store/profileSlice";
 
-export async function generateMetadata() {
-  const title = about.title;
-  const description = about.description;
-  const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
+// export async function generateMetadata() {
+//   const title = about.title;
+//   const description = about.description;
+//   const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
 
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: `https://${baseURL}/about`,
-      images: [
-        {
-          url: ogImage,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-  };
-}
+//   return {
+//     title,
+//     description,
+//     openGraph: {
+//       title,
+//       description,
+//       type: "website",
+//       url: `https://${baseURL}/about`,
+//       images: [
+//         {
+//           url: ogImage,
+//           alt: title,
+//         },
+//       ],
+//     },
+//     twitter: {
+//       card: "summary_large_image",
+//       title,
+//       description,
+//       images: [ogImage],
+//     },
+//   };
+// }
 
 export default function About() {
+  const dispatch = useDispatch<AppDispatch>();
+  const { profile, loading, error } = useSelector((state: RootState) => state.profile);
+
+  useEffect(() => {
+    dispatch(fetchProjects());
+  }, [dispatch]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
   const structure = [
     {
       title: about.intro.title,
@@ -114,6 +129,7 @@ export default function About() {
             flex={3}
             horizontal="center"
           >
+            {/* <Avatar src={profile.findLast((item) => !!item.avatar)?.avatar} size="xl" /> */}
             <Avatar src={person.avatar} size="xl" />
             <Flex gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />

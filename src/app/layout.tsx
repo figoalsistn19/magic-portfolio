@@ -11,6 +11,7 @@ import { Source_Code_Pro } from "next/font/google";
 
 import { person, home } from "@/app/resources/content";
 import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
+import Providers from "@/store/Providers";
 
 export async function generateMetadata() {
   return {
@@ -92,6 +93,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     >
       <ToastProvider>
         <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
+        
           <Background
             mask={{
               cursor: effects.mask.cursor,
@@ -150,8 +152,12 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             horizontal="center"
             flex={1}
           >
+            
             <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
+              <Providers>
+                {children}
+              </Providers>
+              {/* <RouteGuard>{children}</RouteGuard> */}
             </Flex>
           </Flex>
           <Footer />
